@@ -1,9 +1,10 @@
 import { UserInput, LifeDestinyResult, Gender } from "../types";
 import { BAZI_SYSTEM_INSTRUCTION } from "../constants";
 
-// TODO: 请将您的 OpenAI 格式密钥填入此处
-const API_KEY = "sk-UnpzkQCEqt3xRSs0FjzxkYKt8SULkjHTGviSoXsHtm0YHtTx"; 
-const API_BASE_URL = "https://max.openai365.top/v1";
+// 从环境变量读取配置 (使用 Vite 的 import.meta.env)
+const API_KEY = import.meta.env.VITE_API_KEY || "";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://openrouter.ai/api/v1";
+const MODEL_NAME = import.meta.env.VITE_MODEL_NAME || "google/gemini-3-pro-preview";
 
 // Helper to determine stem polarity
 const getStemPolarity = (pillar: string): 'YANG' | 'YIN' => {
@@ -96,7 +97,7 @@ export const generateLifeAnalysis = async (input: UserInput): Promise<LifeDestin
         'Authorization': `Bearer ${API_KEY}`
       },
       body: JSON.stringify({
-        model: "[备用渠道A] gemini-3-pro-preview", // 
+        model: `${MODEL_NAME}`, // 
         messages: [
           { role: "system", content: BAZI_SYSTEM_INSTRUCTION },
           { role: "user", content: userPrompt }
