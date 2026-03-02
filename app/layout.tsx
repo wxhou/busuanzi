@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { ThemeProvider } from './components/ThemeProvider';
 
 export const metadata: Metadata = {
   title: '人生K线 | 八字命理可视化',
@@ -12,9 +13,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" suppressHydrationWarning>
       <body className="antialiased">
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
         {process.env.NODE_ENV === "development" && <AgentationDev />}
       </body>
     </html>

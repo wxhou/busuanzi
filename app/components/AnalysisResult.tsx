@@ -8,7 +8,7 @@ interface AnalysisResultProps {
 
 const ScoreBar = ({ score }: { score: number }) => {
   // Color based on score
-  let colorClass = "bg-gray-300";
+  let colorClass = "bg-gray-300 dark:bg-gray-600";
   if (score >= 8) colorClass = "bg-green-500";
   else if (score >= 6) colorClass = "bg-indigo-500";
   else if (score >= 4) colorClass = "bg-yellow-500";
@@ -16,13 +16,13 @@ const ScoreBar = ({ score }: { score: number }) => {
 
   return (
     <div className="flex items-center gap-3 mt-3">
-      <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-        <div 
-          className={`h-full ${colorClass} transition-all duration-1000 ease-out`} 
+      <div className="flex-1 h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
+        <div
+          className={`h-full ${colorClass} transition-all duration-1000 ease-out`}
           style={{ width: `${score * 10}%` }}
         />
       </div>
-      <span className="text-sm font-bold text-gray-700 min-w-[2.5rem] text-right">
+      <span className="text-sm font-bold text-gray-700 dark:text-slate-300 min-w-[2.5rem] text-right">
         {score} / 10
       </span>
     </div>
@@ -30,7 +30,7 @@ const ScoreBar = ({ score }: { score: number }) => {
 };
 
 const Card = ({ title, icon: Icon, content, score, colorClass }: any) => (
-  <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex flex-col h-full">
+  <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-md transition-shadow flex flex-col h-full">
     <div className={`flex items-center justify-between mb-3 ${colorClass}`}>
       <div className="flex items-center gap-2">
         <Icon className="w-5 h-5" />
@@ -38,9 +38,9 @@ const Card = ({ title, icon: Icon, content, score, colorClass }: any) => (
       </div>
       <Star className="w-4 h-4 opacity-50" />
     </div>
-    <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-wrap flex-grow">{content}</p>
-    <div className="pt-4 mt-2 border-t border-gray-50">
-      <div className="text-xs text-gray-400 font-medium mb-1 uppercase tracking-wider">Rating</div>
+    <p className="text-gray-600 dark:text-slate-300 text-sm leading-relaxed whitespace-pre-wrap flex-grow">{content}</p>
+    <div className="pt-4 mt-2 border-t border-gray-50 dark:border-slate-700">
+      <div className="text-xs text-gray-400 dark:text-slate-500 font-medium mb-1 uppercase tracking-wider">Rating</div>
       <ScoreBar score={score} />
     </div>
   </div>
@@ -50,7 +50,7 @@ const AnalysisResult: React.FC<AnalysisResultProps> = ({ analysis }) => {
   return (
     <div className="w-full space-y-8 animate-fade-in-up">
       {/* Bazi Pillars */}
-      <div className="flex justify-center gap-2 md:gap-8 bg-gray-900 text-amber-50 p-6 rounded-xl shadow-lg overflow-x-auto">
+      <div className="flex justify-center gap-2 md:gap-8 bg-gray-900 dark:bg-black text-amber-50 p-6 rounded-xl shadow-lg overflow-x-auto">
         {analysis.bazi.map((pillar, index) => {
           const labels = ['年柱', '月柱', '日柱', '时柱'];
           return (
@@ -63,9 +63,9 @@ const AnalysisResult: React.FC<AnalysisResultProps> = ({ analysis }) => {
       </div>
 
       {/* Summary with Score */}
-      <div className="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-xl border border-indigo-100 shadow-sm">
+      <div className="bg-gradient-to-br from-indigo-50 to-white dark:from-indigo-900/30 dark:to-slate-800 p-6 rounded-xl border border-indigo-100 dark:border-indigo-800 shadow-sm">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-          <h3 className="flex items-center gap-2 font-serif-sc font-bold text-xl text-indigo-900">
+          <h3 className="flex items-center gap-2 font-serif-sc font-bold text-xl text-indigo-900 dark:text-indigo-300">
             <ScrollText className="w-5 h-5" />
             命理总评
           </h3>
@@ -73,7 +73,7 @@ const AnalysisResult: React.FC<AnalysisResultProps> = ({ analysis }) => {
              <ScoreBar score={analysis.summaryScore} />
           </div>
         </div>
-        <p className="text-gray-700 leading-relaxed whitespace-pre-wrap font-medium">{analysis.summary}</p>
+        <p className="text-gray-700 dark:text-slate-300 leading-relaxed whitespace-pre-wrap font-medium">{analysis.summary}</p>
       </div>
 
       {/* Grid for categorical analysis with Scores */}

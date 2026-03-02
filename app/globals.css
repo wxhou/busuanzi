@@ -8,6 +8,20 @@
 :root {
   --background: #f8f9fa;
   --foreground: #171717;
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+}
+
+/* Dark theme */
+.dark {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --card-bg: #1e293b;
+  --card-border: #334155;
+  --input-bg: #1e293b;
+  --input-border: #475569;
 }
 
 body {
@@ -28,13 +42,25 @@ body {
   background: #f1f1f1;
 }
 
+.dark .custom-scrollbar::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: #d1d5db;
   border-radius: 4px;
 }
 
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #9ca3af;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
 }
 
 /* Animation */

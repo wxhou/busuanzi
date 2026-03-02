@@ -122,16 +122,16 @@ const LifeKLineChart: React.FC<LifeKLineChartProps> = ({ data }) => {
   });
 
   if (!data || data.length === 0) {
-    return <div className="h-[500px] flex items-center justify-center text-gray-400">无数据</div>;
+    return <div className="h-[500px] flex items-center justify-center text-gray-400 dark:text-slate-500">无数据</div>;
   }
 
   return (
-    <div className="w-full h-[600px] bg-white p-2 md:p-6 rounded-xl border border-gray-200 shadow-sm relative">
+    <div className="w-full h-[600px] bg-white dark:bg-slate-800 p-2 md:p-6 rounded-xl border border-gray-200 dark:border-slate-700 shadow-sm relative">
       <div className="mb-6 flex justify-between items-center px-2">
-        <h3 className="text-xl font-bold text-gray-800 font-serif-sc">人生流年大运K线图</h3>
+        <h3 className="text-xl font-bold text-gray-800 dark:text-white font-serif-sc">人生流年大运K线图</h3>
         <div className="flex gap-4 text-xs font-medium">
-           <span className="flex items-center text-green-700 bg-green-50 px-2 py-1 rounded"><div className="w-2 h-2 bg-green-500 mr-2 rounded-full"></div> 吉运 (涨)</span>
-           <span className="flex items-center text-red-700 bg-red-50 px-2 py-1 rounded"><div className="w-2 h-2 bg-red-500 mr-2 rounded-full"></div> 凶运 (跌)</span>
+           <span className="flex items-center text-green-700 dark:text-green-400 bg-green-50 dark:bg-green-900/30 px-2 py-1 rounded"><div className="w-2 h-2 bg-green-500 mr-2 rounded-full"></div> 吉运 (涨)</span>
+           <span className="flex items-center text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/30 px-2 py-1 rounded"><div className="w-2 h-2 bg-red-500 mr-2 rounded-full"></div> 凶运 (跌)</span>
         </div>
       </div>
       
