@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { UserInput, Gender } from '../types';
-import { Loader2, Sparkles, AlertCircle, TrendingUp } from 'lucide-react';
+import { Loader2, Sparkles, TrendingUp } from 'lucide-react';
 
 interface BaziFormProps {
   onSubmit: (data: UserInput) => void;

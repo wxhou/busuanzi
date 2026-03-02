@@ -32,21 +32,32 @@ export interface AnalysisData {
   bazi: string[]; // [Year, Month, Day, Hour] pillars
   summary: string;
   summaryScore: number; // 0-10
-  
+
+  personality?: string;
+  personalityScore?: number; // 0-10
+
   industry: string;
   industryScore: number; // 0-10
-  
+
   wealth: string;
   wealthScore: number; // 0-10
-  
+
   marriage: string;
   marriageScore: number; // 0-10
-  
+
   health: string;
   healthScore: number; // 0-10
-  
+
   family: string;
   familyScore: number; // 0-10
+
+  fengShui?: string;
+  fengShuiScore?: number; // 0-10
+
+  crypto?: string;
+  cryptoScore?: number;
+  cryptoYear?: string;
+  cryptoStyle?: string;
 }
 
 export interface LifeDestinyResult {

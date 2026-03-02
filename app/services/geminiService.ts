@@ -1,10 +1,11 @@
 import { UserInput, LifeDestinyResult, Gender } from "../types";
 import { BAZI_SYSTEM_INSTRUCTION } from "../constants";
 
-// 从环境变量读取配置 (使用 Vite 的 import.meta.env)
-const API_KEY = import.meta.env.VITE_API_KEY || "";
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://openrouter.ai/api/v1";
-const MODEL_NAME = import.meta.env.VITE_MODEL_NAME || "google/gemini-3-pro-preview";
+// 从环境变量读取配置 (使用 Next.js 的 import.meta.env)
+// 使用 typeof 检查确保在客户端环境
+const API_KEY = typeof import.meta !== 'undefined' ? (import.meta.env?.NEXT_PUBLIC_API_KEY || "") : "";
+const API_BASE_URL = typeof import.meta !== 'undefined' ? (import.meta.env?.NEXT_PUBLIC_API_BASE_URL || "https://openrouter.ai/api/v1") : "https://openrouter.ai/api/v1";
+const MODEL_NAME = typeof import.meta !== 'undefined' ? (import.meta.env?.NEXT_PUBLIC_MODEL_NAME || "google/gemini-3-pro-preview") : "google/gemini-3-pro-preview";
 
 // Helper to determine stem polarity
 const getStemPolarity = (pillar: string): 'YANG' | 'YIN' => {
@@ -143,6 +144,14 @@ export const generateLifeAnalysis = async (input: UserInput): Promise<LifeDestin
         healthScore: data.healthScore || 5,
         family: data.family || "无",
         familyScore: data.familyScore || 5,
+        personality: data.personality || "无",
+        personalityScore: data.personalityScore || 5,
+        fengShui: data.fengShui || "无",
+        fengShuiScore: data.fengShuiScore || 5,
+        crypto: data.crypto || "无",
+        cryptoScore: data.cryptoScore || 5,
+        cryptoYear: data.cryptoYear || "无",
+        cryptoStyle: data.cryptoStyle || "无",
       },
     };
   } catch (error) {

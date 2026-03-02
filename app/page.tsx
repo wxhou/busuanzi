@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+'use client';
+
+import { useState } from 'react';
 import BaziForm from './components/BaziForm';
 import LifeKLineChart from './components/LifeKLineChart';
 import AnalysisResult from './components/AnalysisResult';
 import { UserInput, LifeDestinyResult } from './types';
 import { generateLifeAnalysis } from './services/geminiService';
-import { Sparkles, AlertCircle, BookOpen, ArrowRight } from 'lucide-react';
+import { Sparkles, AlertCircle, BookOpen } from 'lucide-react';
 
-const App: React.FC = () => {
+export default function Home() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<LifeDestinyResult | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -19,8 +21,9 @@ const App: React.FC = () => {
     try {
       const analysis = await generateLifeAnalysis(data);
       setResult(analysis);
-    } catch (err: any) {
-      setError(err.message || "命理测算过程中发生了意外错误，请重试。");
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : "命理测算过程中发生了意外错误，请重试。";
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -50,7 +53,7 @@ const App: React.FC = () => {
 
       {/* Main Content */}
       <main className="w-full max-w-7xl mx-auto px-4 py-8 md:py-12 flex flex-col gap-12">
-        
+
         {/* If no result, show intro and form */}
         {!result && (
           <div className="flex flex-col items-center justify-center min-h-[60vh] gap-8 animate-fade-in">
@@ -66,7 +69,7 @@ const App: React.FC = () => {
               </p>
 
               {/* Large Tutorial Link */}
-              <a 
+              <a
                 href="https://jcnjmxofi1yl.feishu.cn/wiki/OPa4woxiBiFP9okQ9yWcbcXpnEw?from=from_copylink"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -82,7 +85,7 @@ const App: React.FC = () => {
                 </div>
               </a>
             </div>
-            
+
             <BaziForm onSubmit={handleFormSubmit} isLoading={loading} />
 
             {error && (
@@ -97,10 +100,10 @@ const App: React.FC = () => {
         {/* Results View */}
         {result && (
           <div className="animate-fade-in space-y-12">
-            
+
             <div className="flex justify-between items-center border-b pb-4">
                <h2 className="text-2xl font-bold font-serif-sc text-gray-800">命盘分析报告</h2>
-               <button 
+               <button
                  onClick={() => setResult(null)}
                  className="text-indigo-600 hover:text-indigo-800 font-medium text-sm"
                >
@@ -138,6 +141,4 @@ const App: React.FC = () => {
       </footer>
     </div>
   );
-};
-
-export default App;
+}
