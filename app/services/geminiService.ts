@@ -1,11 +1,10 @@
 import { UserInput, LifeDestinyResult, Gender } from "../types";
 import { BAZI_SYSTEM_INSTRUCTION } from "../constants";
 
-// 从环境变量读取配置 (使用 Next.js 的 import.meta.env)
-// 使用 typeof 检查确保在客户端环境
-const API_KEY = typeof import.meta !== 'undefined' ? (import.meta.env?.NEXT_PUBLIC_API_KEY || "") : "";
-const API_BASE_URL = typeof import.meta !== 'undefined' ? (import.meta.env?.NEXT_PUBLIC_API_BASE_URL || "https://openrouter.ai/api/v1") : "https://openrouter.ai/api/v1";
-const MODEL_NAME = typeof import.meta !== 'undefined' ? (import.meta.env?.NEXT_PUBLIC_MODEL_NAME || "google/gemini-3-pro-preview") : "google/gemini-3-pro-preview";
+// 从环境变量读取配置
+const API_KEY = process.env.NEXT_PUBLIC_API_KEY || "";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://openrouter.ai/api/v1";
+const MODEL_NAME = process.env.NEXT_PUBLIC_MODEL_NAME || "google/gemini-3-pro-preview";
 
 // Helper to determine stem polarity
 const getStemPolarity = (pillar: string): 'YANG' | 'YIN' => {

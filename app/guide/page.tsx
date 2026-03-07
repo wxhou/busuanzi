@@ -96,7 +96,7 @@ export default function GuidePage() {
                   查看分析结果
                 </h2>
                 <p className="text-[#666] dark:text-[#888] text-sm leading-relaxed">
-                  点击「开始推演」，系统将生成您的人生K线图和分析报告。绿色K线代表好运势，红色代表需要注意的时期。
+                  点击「开始推演」，系统将生成您的命理图谱和分析报告。绿色代表好运势，红色代表需要注意的时期。
                 </p>
               </div>
             </div>

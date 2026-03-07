@@ -3,8 +3,8 @@ import './globals.css';
 import { ThemeProvider } from './components/ThemeProvider';
 
 export const metadata: Metadata = {
-  title: '人生K线 | 八字命理可视化',
-  description: '结合传统八字命理与现代金融数据可视化，将您的一生运势绘制成类似股票行情的K线图',
+  title: '卜算子 | 八字命理可视化',
+  description: '结合传统八字命理与现代数据可视化，洞悉命运起伏，预见人生轨迹',
 };
 
 export default function RootLayout({

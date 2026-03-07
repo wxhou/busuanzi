@@ -46,8 +46,8 @@ export default function Home() {
               <Moon className="w-6 h-6 text-[#c9a959] dark:text-[#1a1a1a]" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-[#1a1a1a] dark:text-[#e8e4dc] tracking-[0.2em]">人生K线</h1>
-              <p className="text-xs text-[#8a8a8a] dark:text-[#666] tracking-[0.3em]">DESTINY VISUALIZATION</p>
+              <h1 className="text-2xl font-bold text-[#1a1a1a] dark:text-[#e8e4dc] tracking-[0.2em]">卜算子</h1>
+              <p className="text-xs text-[#8a8a8a] dark:text-[#666] tracking-[0.3em]">DESTINY DIVINATION</p>
             </div>
           </div>
           <div className="flex items-center gap-4">
@@ -74,7 +74,7 @@ export default function Home() {
               <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#c9a959] to-transparent mx-auto mb-6" />
               <p className="text-[#666] dark:text-[#999] text-base leading-relaxed">
                 融合传统<span className="text-[#8b7355] dark:text-[#c9a959] font-medium">八字命理</span>与现代数据可视化，
-                人生百年运势尽收眼底。
+                洞悉命运起伏，预见人生轨迹。
               </p>
             </div>
 

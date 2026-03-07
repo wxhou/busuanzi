@@ -7,11 +7,11 @@ interface AnalysisResultProps {
 }
 
 const ScoreBar = ({ score }: { score: number }) => {
-  // Color based on score
+  // Color based on score - 传统配色：金色系
   let colorClass = "bg-gray-300 dark:bg-gray-600";
-  if (score >= 8) colorClass = "bg-green-500";
-  else if (score >= 6) colorClass = "bg-indigo-500";
-  else if (score >= 4) colorClass = "bg-yellow-500";
+  if (score >= 8) colorClass = "bg-amber-500";
+  else if (score >= 6) colorClass = "bg-yellow-500";
+  else if (score >= 4) colorClass = "bg-orange-500";
   else colorClass = "bg-red-500";
 
   return (
@@ -22,7 +22,7 @@ const ScoreBar = ({ score }: { score: number }) => {
           style={{ width: `${score * 10}%` }}
         />
       </div>
-      <span className="text-sm font-bold text-gray-700 dark:text-slate-300 min-w-[2.5rem] text-right">
+      <span className="text-sm font-bold text-amber-600 dark:text-amber-400 min-w-[2.5rem] text-right">
         {score} / 10
       </span>
     </div>
@@ -40,7 +40,7 @@ const Card = ({ title, icon: Icon, content, score, colorClass }: any) => (
     </div>
     <p className="text-gray-600 dark:text-slate-300 text-sm leading-relaxed whitespace-pre-wrap flex-grow">{content}</p>
     <div className="pt-4 mt-2 border-t border-gray-50 dark:border-slate-700">
-      <div className="text-xs text-gray-400 dark:text-slate-500 font-medium mb-1 uppercase tracking-wider">Rating</div>
+      <div className="text-xs text-gray-400 dark:text-slate-500 font-medium mb-1 uppercase tracking-wider">评分</div>
       <ScoreBar score={score} />
     </div>
   </div>
