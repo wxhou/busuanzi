@@ -157,18 +157,18 @@ export default function Home() {
         {result && (
           <div className="animate-fade-in space-y-10">
 
-            <div className="flex justify-between items-center pb-4 border-b border-[#e5e0d8] dark:border-[#2a2a2a]">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-4 border-b border-[#e5e0d8] dark:border-[#2a2a2a]">
                <h2 className="text-xl font-bold text-[#1a1a1a] dark:text-[#e8e4ec]">命盘分析</h2>
-               <div className="flex items-center gap-3">
+               <div className="flex flex-wrap items-center gap-2 md:gap-3">
                  {saveSuccess ? (
                    <span className="text-green-600 dark:text-green-400 text-sm">已保存</span>
                  ) : (
                    <button
                      onClick={handleSaveRecord}
                      disabled={saveLoading}
-                     className="flex items-center gap-2 px-3 py-1.5 bg-[#c9a959] hover:bg-[#b89849] text-white rounded-lg text-sm transition-colors disabled:opacity-50"
+                     className="flex items-center gap-1 md:gap-2 px-2 md:px-3 py-1 md:py-1.5 bg-[#c9a959] hover:bg-[#b89849] text-white rounded-lg text-xs md:text-sm transition-colors disabled:opacity-50"
                    >
-                     <Save className="w-4 h-4" />
+                     <Save className="w-3 md:w-4 h-3 md:h-4" />
                      {saveLoading ? '保存中...' : '保存命盘'}
                    </button>
                  )}

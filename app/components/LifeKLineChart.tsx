@@ -21,7 +21,7 @@ const CustomTooltip = ({ active, payload }: any) => {
     const data = payload[0].payload as KLinePoint;
     const isUp = data.close >= data.open;
     return (
-      <div className="bg-white/95 backdrop-blur-sm p-5 rounded-xl shadow-2xl border border-gray-200 z-50 w-[320px] md:w-[400px]">
+      <div className="bg-white/95 backdrop-blur-sm p-3 md:p-5 rounded-xl shadow-2xl border border-gray-200 z-50 w-[280px] md:w-[400px] max-w-[90vw]">
         {/* Header */}
         <div className="flex justify-between items-start mb-3 border-b border-gray-100 pb-2">
           <div>
@@ -38,7 +38,7 @@ const CustomTooltip = ({ active, payload }: any) => {
         </div>
 
         {/* Data Grid */}
-        <div className="grid grid-cols-4 gap-2 text-xs text-gray-500 mb-4 bg-gray-50 p-2 rounded">
+        <div className="grid grid-cols-4 gap-1 md:gap-2 text-xs text-gray-500 mb-2 md:mb-4 bg-gray-50 p-1 md:p-2 rounded">
           <div className="text-center">
             <span className="block scale-90">开盘</span>
             <span className="font-mono text-gray-700 font-bold">{data.open}</span>
@@ -127,12 +127,12 @@ const LifeKLineChart: React.FC<LifeKLineChartProps> = ({ data }) => {
   }
 
   return (
-    <div className="w-full h-[600px] bg-white dark:bg-slate-800 p-2 md:p-6 rounded-xl border border-gray-200 dark:border-slate-700 shadow-sm relative">
-      <div className="mb-6 flex justify-between items-center px-2">
-        <h3 className="text-xl font-bold text-gray-800 dark:text-white font-serif-sc">人生流年大运K线图</h3>
-        <div className="flex gap-4 text-xs font-medium">
-           <span className="flex items-center text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/30 px-2 py-1 rounded"><div className="w-2 h-2 bg-red-500 mr-2 rounded-full"></div> 吉运 (涨)</span>
-           <span className="flex items-center text-green-700 dark:text-green-400 bg-green-50 dark:bg-green-900/30 px-2 py-1 rounded"><div className="w-2 h-2 bg-green-500 mr-2 rounded-full"></div> 凶运 (跌)</span>
+    <div className="w-full h-[400px] md:h-[600px] bg-white dark:bg-slate-800 p-2 md:p-6 rounded-xl border border-gray-200 dark:border-slate-700 shadow-sm relative">
+      <div className="mb-2 md:mb-6 flex flex-col md:flex-row justify-between items-center gap-2 px-2">
+        <h3 className="text-lg md:text-xl font-bold text-gray-800 dark:text-white font-serif-sc">人生流年大运K线图</h3>
+        <div className="flex gap-2 md:gap-4 text-xs font-medium">
+           <span className="flex items-center text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/30 px-1 md:px-2 py-0.5 md:py-1 rounded text-xs"><div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-red-500 mr-1 rounded-full"></div> 吉运</span>
+           <span className="flex items-center text-green-700 dark:text-green-400 bg-green-50 dark:bg-green-900/30 px-1 md:px-2 py-0.5 md:py-1 rounded text-xs"><div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-green-500 mr-1 rounded-full"></div> 凶运</span>
         </div>
       </div>
       

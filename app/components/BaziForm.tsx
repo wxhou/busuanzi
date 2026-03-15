@@ -78,7 +78,7 @@ const BaziForm: React.FC<BaziFormProps> = ({ onSubmit, isLoading }) => {
   }, [formData.yearPillar, formData.gender]);
 
   return (
-    <div className="w-full max-w-md bg-white/90 dark:bg-[#141414]/90 backdrop-blur-sm p-8 rounded-md shadow-sm border border-[#e5e0d8] dark:border-[#2a2a2a]">
+    <div className="w-full max-w-md bg-white/90 dark:bg-[#141414]/90 backdrop-blur-sm p-4 md:p-8 rounded-md shadow-sm border border-[#e5e0d8] dark:border-[#2a2a2a]">
       {/* Step Indicator - minimal style */}
       <div className="flex items-center justify-center mb-6">
         <div className="flex items-center gap-3">
@@ -92,7 +92,7 @@ const BaziForm: React.FC<BaziFormProps> = ({ onSubmit, isLoading }) => {
             }`}>
               {currentStep > 1 ? '✓' : '1'}
             </div>
-            <span className={`text-xs tracking-wide ${currentStep === 1 ? 'text-[#1a1a1a] dark:text-[#c9a959]' : 'text-[#999] dark:text-[#555]'}`}>
+            <span className={`text-xs tracking-wide hidden md:inline ${currentStep === 1 ? 'text-[#1a1a1a] dark:text-[#c9a959]' : 'text-[#999] dark:text-[#555]'}`}>
               基础
             </span>
           </div>
@@ -107,7 +107,7 @@ const BaziForm: React.FC<BaziFormProps> = ({ onSubmit, isLoading }) => {
             }`}>
               2
             </div>
-            <span className={`text-xs tracking-wide ${currentStep === 2 ? 'text-[#1a1a1a] dark:text-[#c9a959]' : 'text-[#999] dark:text-[#555]'}`}>
+            <span className={`text-xs tracking-wide hidden md:inline ${currentStep === 2 ? 'text-[#1a1a1a] dark:text-[#c9a959]' : 'text-[#999] dark:text-[#555]'}`}>
               四柱
             </span>
           </div>
@@ -124,7 +124,7 @@ const BaziForm: React.FC<BaziFormProps> = ({ onSubmit, isLoading }) => {
         {/* Step 1: Basic Info */}
         {currentStep === 1 && (
           <div className="animate-fade-in space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-2 md:gap-4">
               <div>
                 <label className="block text-xs text-[#666] dark:text-[#888] mb-2">
                   姓名 <span className="text-gray-400">(可选)</span>
@@ -188,7 +188,7 @@ const BaziForm: React.FC<BaziFormProps> = ({ onSubmit, isLoading }) => {
                   className="w-full px-3 py-2 bg-white dark:bg-[#1a1a1a] border border-[#e5e0d8] dark:border-[#333] rounded text-sm text-[#1a1a1a] dark:text-[#e8e4dc] focus:border-[#c9a959] outline-none"
                 />
               </div>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-1 md:gap-2">
                 {['yearPillar', 'monthPillar', 'dayPillar', 'hourPillar'].map((field) => (
                   <input
                     key={field}
@@ -207,7 +207,7 @@ const BaziForm: React.FC<BaziFormProps> = ({ onSubmit, isLoading }) => {
             {/* Da Yun */}
             <div className="p-4 bg-[#faf9f7] dark:bg-[#141414] rounded-md border border-[#e5e0d8] dark:border-[#2a2a2a]">
               <div className="text-xs text-[#8b7355] dark:text-[#c9a959] mb-3 font-light">大运</div>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-1 md:gap-2">
                 <input
                   type="number"
                   name="startAge"

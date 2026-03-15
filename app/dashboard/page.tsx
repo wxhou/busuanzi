@@ -61,7 +61,7 @@ export default function Dashboard() {
       </header>
 
       <main className="flex-1 max-w-4xl mx-auto px-6 py-8 w-full">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 md:gap-0 mb-8">
           <h1 className="text-2xl font-bold text-[#1a1a1a] dark:text-[#e8e4dc]">我的命盘</h1>
           {records.length > 0 && (
             <button
@@ -97,11 +97,11 @@ export default function Dashboard() {
             </Link>
           </div>
         ) : (
-          <div className="grid gap-4">
+          <div className="grid gap-3 md:gap-4">
             {records.map((record) => (
               <div
                 key={record.id}
-                className="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-md transition-shadow"
+                className="bg-white dark:bg-slate-800 p-3 md:p-4 rounded-xl shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-md transition-shadow"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
