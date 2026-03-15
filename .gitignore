@@ -31,3 +31,10 @@ out/
 
 # OpenSpec
 openspec/
+
+# Test/Mock data
+test.json
+mock-data.json
+
+# Database
+*.db
