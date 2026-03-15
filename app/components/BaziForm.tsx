@@ -126,14 +126,16 @@ const BaziForm: React.FC<BaziFormProps> = ({ onSubmit, isLoading }) => {
           <div className="animate-fade-in space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs text-[#666] dark:text-[#888] mb-2">姓名</label>
+                <label className="block text-xs text-[#666] dark:text-[#888] mb-2">
+                  姓名 <span className="text-gray-400">(可选)</span>
+                </label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full px-3 py-2.5 bg-[#faf9f7] dark:bg-[#1a1a1a] border border-[#e5e0d8] dark:border-[#333] rounded-md text-sm text-[#1a1a1a] dark:text-[#e8e4dc] focus:border-[#c9a959] focus:ring-1 focus:ring-[#c9a959] outline-none transition-colors"
-                  placeholder="您的姓名"
+                  placeholder="可选，用于标识命盘"
                 />
               </div>
               <div>
